@@ -1,0 +1,31 @@
+<app-header [titulo]="nombre || 'Input Forms'"></app-header>
+
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Input normal</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input type="text" placeholder="Awesome Input" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+  </ion-list>
+  <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+    <ion-list-header>
+      <ion-label>Formulario válido: {{ formulario.valid }}</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-input label="Ingrese Nombre" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Edad" type="number" placeholder="00"></ion-input>
+    </ion-item>
+    
+  
+    <ion-button [disabled]="formulario.invalid" type="submit" expand="block">
+      Login
+    </ion-button>
+  </form>
+</ion-content>
